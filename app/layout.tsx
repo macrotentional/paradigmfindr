@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://paradigmfindr.vercel.app'),
   title: "ParadigmFindr — Find your therapy",
   description: "Answer seven questions and discover which psychotherapy modality fits how you think, feel, and want to heal.",
   openGraph: {

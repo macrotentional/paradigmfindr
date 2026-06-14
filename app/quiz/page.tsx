@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { AnimatePresence } from 'framer-motion'
 import { questions } from '@/data/questions'
 import { scoreAnswers } from '@/lib/scoring'
 import QuizStep from '@/components/QuizStep'
@@ -58,12 +59,15 @@ export default function QuizPage() {
         </div>
 
         <div className="flex-1">
-          <QuizStep
-            question={question}
-            selectedId={selectedId}
-            onSelect={handleSelect}
-            stepIndex={currentStep}
-          />
+          <AnimatePresence mode="wait">
+            <QuizStep
+              key={currentStep}
+              question={question}
+              selectedId={selectedId}
+              onSelect={handleSelect}
+              stepIndex={currentStep}
+            />
+          </AnimatePresence>
         </div>
 
         <div className="mt-12">

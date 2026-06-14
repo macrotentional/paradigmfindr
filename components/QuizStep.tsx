@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import type { Question } from '@/data/questions'
 
 interface QuizStepProps {
@@ -12,15 +12,13 @@ interface QuizStepProps {
 
 export default function QuizStep({ question, selectedId, onSelect, stepIndex }: QuizStepProps) {
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={question.id}
-        initial={{ opacity: 0, y: 32 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -32 }}
-        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-        className="w-full"
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -32 }}
+      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+      className="w-full"
+    >
         <div className="mb-10">
           <p className="text-xs font-mono tracking-widest text-amber-400 uppercase mb-4">
             Question {stepIndex + 1}
@@ -59,6 +57,5 @@ export default function QuizStep({ question, selectedId, onSelect, stepIndex }: 
           })}
         </div>
       </motion.div>
-    </AnimatePresence>
   )
 }
